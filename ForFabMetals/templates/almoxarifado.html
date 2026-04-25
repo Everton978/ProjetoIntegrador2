@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxarifado - ForFabio</title>
+    <link rel="stylesheet" href="almoxarifado.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="pcp.html">PCP</a>
+        <a href="almoxarifado.html" class="ativo">Almox</a>
+        <a href="apontamento.html">Aponte</a>
+        <a href="producao.html">Prod</a>
+        <a href="engenharia.html">Eng</a>
+        <a href="qualidade.html">Quali</a>
+        <a href="gestao.html">Gestor</a>
+        <a href="#" onclick="logout()" style="color:#e74c3c; font-weight: bold;">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Controle de Materiais e Estoque</h2>
+    
+    <div class="form-grid">
+        <div class="campo" style="max-width: 80px;">
+            <label>Qtd</label>
+            <input type="number" id="newQtd" value="1" min="1">
+        </div>
+        
+        <div class="campo">
+            <label>Projeto da Engenharia</label>
+            <select id="newPeca" onchange="verificarMaterialEngenharia()">
+                <option value="">Aguardando projetos...</option>
+            </select>
+        </div>
+        
+        <div class="campo">
+            <label>Matéria-Prima</label>
+            <input type="text" id="newMat" placeholder="Aguardando seleção...">
+        </div>
+
+        <div class="campo">
+            <label>Perfil da Peça Bruta</label>
+            <select id="perfilMaterial" onchange="mudarCamposMedida()">
+                <option value="cilindrico">🔴 Tarugo Cilíndrico (Redondo)</option>
+                <option value="bloco">🟦 Bloco / Barra Quadrada</option>
+                <option value="chapa">📄 Chapa / Placa</option>
+                <option value="tubo">⭕ Tubo</option>
+                <option value="livre">✏️ Outro (Livre)</option>
+            </select>
+        </div>
+        
+        <div class="campo" id="boxMedidas" style="grid-column: span 2;">
+            <label>Dimensões de Corte (mm)</label>
+            <div class="medidas-grupo">
+                <input type="number" id="dim1" placeholder="Ø Diâmetro (mm)">
+                <input type="number" id="dim2" placeholder="Comprimento L (mm)">
+            </div>
+        </div>
+        
+        <div class="campo">
+            <label>Responsável</label>
+            <input type="text" id="newResp" readonly>
+        </div>
+        
+        <button class="btn-add" onclick="adicionarNovaLinha()">➕ Lançar Estoque</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Qtd</th>
+                    <th>Projeto / Peça</th>
+                    <th>Material Físico</th>
+                    <th>Dimensões do Blank</th>
+                    <th>Data</th>
+                    <th>Resp</th>
+                    <th>Desenho</th>
+                    <th>Endereço / Posição</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaAlmox"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="almoxarifado.js"></script>
+</body>
+</html>

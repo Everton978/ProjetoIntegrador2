@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForFabio Metal | Indústria 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav class="topbar">
+    <a href="index.html" class="topbar-brand">For<span>Fab</span> Metal</a>
+    <div class="topbar-nav">
+        <a href="#modulos" class="btn-nav btn-ghost">Módulos</a>
+        <a href="login.html" class="btn-nav btn-cta">Acessar Sistema →</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-gold"></div>
+
+    <div class="hero-content">
+        <div class="hero-tag">Sistema de Gestão Industrial</div>
+
+        <h1 class="hero-title">
+            <span class="line-muted">Bem-vindo à</span>
+            <span class="line-gold">ForFabio</span>
+            <span class="line-white">Metal</span>
+        </h1>
+
+        <p class="hero-desc">
+            Plataforma integrada de <strong>Indústria 4.0</strong> para controle total da fábrica —
+            da engenharia ao chão de produção, em tempo real.
+        </p>
+
+        <div class="hero-actions">
+            <a href="login.html" class="btn-hero-primary">
+                Acessar o Sistema
+                <span class="arrow">→</span>
+            </a>
+            <a href="#modulos" class="btn-hero-secondary">Ver Módulos</a>
+        </div>
+    </div>
+
+    <div class="hero-logo-deco">
+        <img src="{% static 'img/logo_forfabio.gif' %}" alt="ForFabio Logo">
+    </div>
+</section>
+
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Módulos Integrados</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Rastreabilidade</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">4.0</div>
+        <div class="stat-label">Indústria Digital</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">Live</div>
+        <div class="stat-label">Dados em Tempo Real</div>
+    </div>
+</div>
+
+<section class="section" id="modulos">
+    <div class="reveal">
+        <p class="section-label">// Ecossistema ForFabio</p>
+        <h2 class="section-title">Tudo em um<br>só sistema</h2>
+        <p class="section-sub">
+            Cada setor da fábrica conectado em um fluxo contínuo e rastreável —
+            do primeiro traço da engenharia à aprovação final da qualidade.
+        </p>
+    </div>
+
+    <div class="modules-grid reveal">
+
+        <div class="module-card">
+            <span class="module-icon">⚙️</span>
+            <div class="module-name">PCP</div>
+            <div class="module-desc">Planejamento e controle da produção. Criação de ordens de serviço com aprovação pelo gestor antes de ir ao chão de fábrica.</div>
+            <span class="module-badge">Planejamento</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">📦</span>
+            <div class="module-name">Almoxarifado</div>
+            <div class="module-desc">Gestão de estoque de matérias-primas e materiais. Entradas, saídas e controle de saldo em tempo real.</div>
+            <span class="module-badge">Estoque</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">📋</span>
+            <div class="module-name">Apontamento</div>
+            <div class="module-desc">Registro de atividades diárias por operador. Tempo, status e desvios de processo com justificativa para auditoria.</div>
+            <span class="module-badge">Operação</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">🏭</span>
+            <div class="module-name">Produção</div>
+            <div class="module-desc">Painel do chão de fábrica em tempo real. Operadores assumem OS, seguem roteiros e atualizam o progresso.</div>
+            <span class="module-badge">Manufatura</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">📐</span>
+            <div class="module-name">Engenharia</div>
+            <div class="module-desc">Repositório de desenhos técnicos, revisões e projetos. Fluxo de aprovação integrado com a gestão.</div>
+            <span class="module-badge">Projetos</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">✅</span>
+            <div class="module-name">Qualidade</div>
+            <div class="module-desc">Emissão de laudos de inspeção por peça. Aprovação, rejeição e solicitação de retrabalho direto ao operador.</div>
+            <span class="module-badge">CQ / Inspeção</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">📊</span>
+            <div class="module-name">Gestão</div>
+            <div class="module-desc">Torre de controle da fábrica. Aprovações, auditoria de turnos, alertas de desvio e visão geral de todos os setores.</div>
+            <span class="module-badge">Diretoria</span>
+        </div>
+
+        <div class="module-card">
+            <span class="module-icon">🏠</span>
+            <div class="module-name">Dashboard Home</div>
+            <div class="module-desc">Painel central com KPIs de engenharia, PCP, produção e qualidade. Radar de ordens ao vivo e progresso por conjunto.</div>
+            <span class="module-badge">Visão Geral</span>
+        </div>
+
+    </div>
+</section>
+
+<div class="divider-line"></div>
+
+<section class="cta-section">
+    <p class="cta-eyebrow reveal">// Pronto para começar?</p>
+    <h2 class="cta-title reveal">
+        Controle total<br>da sua <span class="gold">fábrica</span>
+    </h2>
+    <p class="cta-sub reveal">
+        Faça login com seu RA e acesse seu setor. O sistema rastreia cada etapa —
+        do projeto ao produto acabado.
+    </p>
+    <a href="login.html" class="btn-hero-primary reveal" style="display:inline-flex;">
+        Entrar no Sistema
+        <span class="arrow">→</span>
+    </a>
+</section>
+
+<footer class="footer">
+    <div class="footer-brand">For<span>Fab</span> Metal</div>
+    <div class="footer-copy">© 2026 ForFabio Enterprise · Sistema Integrado de Manufatura · Indústria 4.0</div>
+</footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

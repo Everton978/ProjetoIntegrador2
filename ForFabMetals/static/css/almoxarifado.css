@@ -1,0 +1,92 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #27ae60;
+    --orange: #e67e22;
+    --blue: #2980b9;
+    --danger: #e74c3c;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --accent: #f1c40f;
+}
+
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
+
+/* NAVBAR PADRONIZADA FORFABIO */
+.navbar {
+    background: #2c3e50;
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; }
+.brand span { color: #f1c40f; }
+
+.nav-links { display: flex; gap: 5px; flex-wrap: wrap; }
+.nav-links a { color: #ecf0f1; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 5px; transition: 0.3s; font-weight: 500; }
+.nav-links a:hover { background: rgba(255, 255, 255, 0.1); color: #f1c40f; }
+.nav-links a.ativo { background: #f1c40f; color: #2c3e50 !important; font-weight: bold; }
+
+/* CONTAINER */
+.container {
+    max-width: 1200px; margin: 20px auto;
+    background: var(--white); padding: 25px;
+    border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 95%; box-sizing: border-box;
+}
+
+h2 { color: var(--primary); border-left: 5px solid var(--orange); padding-left: 10px; }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    align-items: end;
+}
+
+.campo { display: flex; flex-direction: column; gap: 5px; }
+label { font-size: 11px; font-weight: bold; color: #7f8c8d; text-transform: uppercase; }
+
+input, select { padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; }
+input:focus, select:focus { border-color: var(--orange); }
+
+/* GRUPO DE MEDIDAS DINÂMICAS */
+.medidas-grupo { display: flex; gap: 8px; }
+.medidas-grupo input { width: 100%; text-align: center; }
+
+.btn-add { background: var(--secondary); color: white; border: none; padding: 12px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s; height: 42px;}
+.btn-add:hover { background: #219a52; }
+
+/* STATUS COLORS */
+.sel-almoxarifado { background: #ffe5b4 !important; font-weight: bold; color: #d35400; }
+.sel-producao { background: #d1ecf1 !important; font-weight: bold; color: #0c5460; }
+.sel-finalizado { background: #d4edda !important; font-weight: bold; color: #155724; }
+.sel-descartado { background: #f8d7da !important; font-weight: bold; color: #721c24; }
+
+.table-container { overflow-x: auto; border: 1px solid #eee; border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+th { background: var(--orange); color: white; padding: 12px; text-transform: uppercase; font-size: 12px; }
+td { padding: 12px; border-bottom: 1px solid #eee; font-size: 14px; }
+
+.btn-view-eng { background: var(--blue); color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold; }
+.dimensao-badge { background: #eee; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; font-weight: bold; color: #333; }
+
+@media (max-width: 850px) {
+    .navbar { flex-direction: column; padding: 10px; }
+    .nav-links { justify-content: center; width: 100%; margin-top: 10px; }
+    table, thead { display: none; }
+    #tabelaAlmox { display: flex; flex-direction: column; gap: 15px; }
+    .card-item { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 5px solid var(--orange); }
+    .card-linha { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; align-items: center;}
+}

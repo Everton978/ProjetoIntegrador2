@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ForFabio [MODO TESTE]</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<div class="login-card">
+    <img src="logo_forfabio.gif" class="logo-gif" alt="Logo ForFabio">
+
+    <div class="banner-teste">
+        ⚙️ <strong>MODO DESENVOLVIMENTO</strong><br>
+        Use o botão laranja para acesso instantâneo
+    </div>
+
+    <div id="formLogin">
+        <h2>Acesso ao Sistema</h2>
+
+        <button class="btn-teste" onclick="loginRapido()">⚡ Entrar como TESTER (Dev)</button>
+
+        <div class="divider">ou login manual</div>
+
+        <input type="text" id="raLogin" placeholder="Digite seu RA">
+        <input type="password" id="senhaLogin" placeholder="Sua Senha">
+        <button onclick="tentarLogin()">Entrar</button>
+        <div id="msgLogin" class="mensagem"></div>
+        <span class="link-troca" onclick="alternarTela('cadastro')">Criar conta</span>
+    </div>
+
+    <div id="formCadastro">
+        <h2>Novo Operador</h2>
+        <input type="text" id="cadNome" placeholder="Nome Completo">
+        <input type="text" id="cadRA" placeholder="RA">
+        <input type="text" id="cadTurma" placeholder="Turma">
+        <input type="password" id="cadSenha" placeholder="Senha">
+        <button onclick="registrarUsuario()" style="background:#2980b9;">Cadastrar</button>
+        <div id="msgCadastro" class="mensagem"></div>
+        <span class="link-troca" onclick="alternarTela('login')">Voltar</span>
+    </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

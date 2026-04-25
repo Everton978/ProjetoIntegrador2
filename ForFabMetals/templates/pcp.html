@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCP - ForFabio Gestão</title>
+    <link rel="stylesheet" href="pcp.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a><a href="pcp.html">PCP</a><a href="almoxarifado.html">Almox</a><a href="apontamento.html">Aponte</a><a href="producao.html">Prod</a><a href="engenharia.html">Eng</a><a href="qualidade.html">Quali</a><a href="gestao.html">Gestor</a>
+        <a href="#" onclick="logout()" style="color: #e74c3c; font-weight: bold;">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>PCP - Planejamento Técnico</h2>
+
+    <div class="form-section borda-os">
+        <h3>📂 1. Seleção de Projeto da Engenharia</h3>
+        <div class="form-grid">
+            <div class="campo" style="grid-column: span 2;">
+                <label>Projetos Disponíveis</label>
+                <select id="nomePeca" onchange="selecionarDesenho()"><option value="">Aguardando carregamento...</option></select>
+            </div>
+            <div class="campo">
+                <label>Criticidade</label>
+                <select id="criticidade"><option value="1">Baixa Criticidade</option><option value="2" selected>Normal</option><option value="3">Prioridade Máxima</option></select>
+            </div>
+            <div class="campo" style="grid-column: span 2;">
+                <label>Link / Referência (Automático)</label>
+                <input type="text" id="linkDesenho" oninput="validarLink()" placeholder="Selecione um projeto acima..." readonly>
+                <a id="btnVerDesenho" target="_blank" class="btn-preview">🔍 Visualizar Projeto</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section borda-calc">
+        <h3>🧮 2. Calculadora de Usinagem</h3>
+        <div style="margin-bottom: 20px; display: flex; gap: 20px;">
+            <label><input type="radio" name="tipoMaquina" value="torno" checked onchange="mudarCalculadora()"> Torno</label>
+            <label><input type="radio" name="tipoMaquina" value="fresa" onchange="mudarCalculadora()"> Fresa</label>
+        </div>
+        <div id="calcTorno" class="form-grid">
+            <div class="campo"><label>Vc (m/min)</label><input type="number" id="vcTorno"></div>
+            <div class="campo"><label>Ø (mm)</label><input type="number" id="dTorno"></div>
+            <div class="campo"><label>f (mm/rev)</label><input type="number" id="fTorno"></div>
+            <div class="campo"><label>L (mm)</label><input type="number" id="cTorno"></div>
+            <div class="campo"><label>Passes</label><input type="number" id="passesTorno" value="1"></div>
+        </div>
+        <div id="calcFresa" class="form-grid" style="display:none;">
+            <div class="campo"><label>n (RPM)</label><input type="number" id="nFresa"></div>
+            <div class="campo"><label>fz (mm/z)</label><input type="number" id="fzFresa"></div>
+            <div class="campo"><label>Z (Dentes)</label><input type="number" id="zFresa"></div>
+            <div class="campo"><label>L (mm)</label><input type="number" id="cFresa"></div>
+            <div class="campo"><label>Passes</label><input type="number" id="passesFresa" value="1"></div>
+        </div>
+        <div style="margin-top: 25px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <button class="btn-add bg-purple" onclick="calcularTempo()">⚡ Calcular Tempo</button>
+            <div style="font-weight: bold;">Resultado: <span id="resultadoTempo" style="color: var(--danger);">0.00 min</span></div>
+            <button id="btnAplicarTempo" class="btn-add bg-green" style="display:none;" onclick="aplicarTempoNaOS()">📥 Aplicar no Cronograma</button>
+        </div>
+    </div>
+
+    <div class="form-section borda-roteiro">
+        <h3>📋 3. Roteiro de Produção (Checklist da OS)</h3>
+        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+            <input type="text" id="novaTarefa" placeholder="Ex: Tratamento Térmico" style="flex: 1;" onkeypress="if(event.key === 'Enter') adicionarTarefaRoteiro()">
+            <button class="btn-add bg-dark" onclick="adicionarTarefaRoteiro()" style="padding: 10px 15px;">➕ Adicionar Etapa</button>
+        </div>
+        <ul id="listaRoteiro" class="lista-tarefas">
+            </ul>
+    </div>
+
+    <div class="form-section borda-os" style="border-left-color: var(--secondary);">
+        <h3>📅 4. Cronograma e Lançamento</h3>
+        <div class="form-grid">
+            <div class="campo"><label>Início</label><input type="datetime-local" id="inicioPeca"></div>
+            <div class="campo"><label>Término</label><input type="datetime-local" id="fimPeca"></div>
+            <div class="campo">
+                <button id="btn-lancar-os" class="btn-add bg-blue" onclick="adicionarOS()">🚀 Lançar Ordem</button>
+                <button id="btn-cancelar-edicao" class="btn-add btn-cancelar-edicao" onclick="cancelarEdicao()">❌ Cancelar Edição</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-tabela">
+        <h2 style="margin: 0; border: none; padding: 0;">Chão de Fábrica | Monitoramento</h2>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>ID OS</th><th>Peça</th><th>Início</th><th>Fim</th><th>Aprovação Gestor</th><th>Status Fábrica</th><th>Prioridade</th><th>Ações</th></tr></thead>
+            <tbody id="tabelaPCP"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="pcp.js"></script>
+</body>
+</html>

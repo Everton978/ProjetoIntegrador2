@@ -1,0 +1,27 @@
+.container { max-width: 1100px; margin: 25px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); width: 95%; }
+h2 { border-left: 5px solid var(--orange); padding-left: 10px; color: var(--primary); }
+.upload-section { background: #fff5eb; padding: 20px; border-radius: 10px; border: 1px dashed var(--orange); margin-bottom: 25px; }
+.grid-eng { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 15px; align-items: end;}
+.campo { display: flex; flex-direction: column; gap: 5px; }
+label { font-size: 11px; font-weight: bold; color: #7f8c8d; text-transform: uppercase; }
+input, select { padding: 10px; border: 1px solid #ddd; border-radius: 6px; }
+button { margin-top: 15px; background: var(--orange); color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+button:hover { background: #d35400; }
+.btn-cancelar { background: #95a5a6 !important; margin-top: 10px; display: none; }
+.btn-cancelar:hover { background: #7f8c8d !important; }
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { background: #f1f1f1; padding: 12px; text-align: left; font-size: 12px; text-transform: uppercase;}
+td { padding: 12px; border-bottom: 1px solid #eee; font-size: 13px; }
+.badge { padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: bold; text-transform: uppercase;}
+.pendente { background: #f1c40f; color: #2c3e50; }
+.aprovado { background: #27ae60; color: white; }
+.rejeitado { background: #e74c3c; color: white; }
+.btn-link { background: var(--blue); color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 11px; display: inline-block; margin-top: 5px; font-weight: bold;}
+
+@media (max-width: 850px) {
+    table, thead { display: none; }
+    #lista { display: flex; flex-direction: column; gap: 15px; }
+    .card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 5px solid var(--orange); }
+    .linha { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; align-items: center;}
+}

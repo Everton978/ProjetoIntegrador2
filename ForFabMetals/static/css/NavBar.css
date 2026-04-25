@@ -1,0 +1,45 @@
+/* =============================================
+   FORFABIO — CSS COMPARTILHADO (navbar + base)
+   ============================================= */
+:root {
+    --primary: #2c3e50;
+    --secondary: #27ae60;
+    --warning: #f1c40f;
+    --danger: #e74c3c;
+    --orange: #e67e22;
+    --blue: #2980b9;
+    --purple: #8e44ad;
+    --bg: #f0f2f5;
+    --white: #ffffff;
+    --accent: #f1c40f;
+}
+
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
+
+/* NAVBAR */
+.navbar {
+    background: #2c3e50;
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; }
+.brand span { color: #f1c40f; }
+
+.nav-links { display: flex; gap: 5px; flex-wrap: wrap; }
+.nav-links a { color: #ecf0f1; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 5px; transition: 0.3s; font-weight: 500; }
+.nav-links a:hover { background: rgba(255, 255, 255, 0.1); color: #f1c40f; }
+.nav-links a.ativo { background: #f1c40f; color: #2c3e50 !important; font-weight: bold; }
+
+@media (max-width: 850px) {
+    .navbar { flex-direction: column; padding: 10px; }
+    .nav-links { justify-content: center; width: 100%; margin-top: 10px; }
+}

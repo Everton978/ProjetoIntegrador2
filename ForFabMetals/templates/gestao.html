@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Gestor - ForFabio</title>
+    <link rel="stylesheet" href="gestao.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a><a href="pcp.html">PCP</a><a href="almoxarifado.html">Almox</a><a href="apontamento.html">Aponte</a><a href="producao.html">Prod</a><a href="engenharia.html">Eng</a><a href="qualidade.html">Quali</a><a href="gestao.html" class="ativo">Gestor</a>
+        <a href="#" onclick="logout()" style="color:#e74c3c;">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Controle Geral da Fábrica</h1>
+    
+    <div class="card">
+        <div class="kpi-container">
+            <div class="kpi-box"><small>Ordens Ativas</small><p id="kpi-ordens">0</p></div>
+            <div class="kpi-box"><small>Desvios/Problemas</small><p id="kpi-erros" style="color: var(--danger);">0</p></div>
+            <div class="kpi-box"><small>Itens Estoque</small><p id="kpi-estoque" style="color: var(--secondary);">0</p></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🟡 1. Fila de Aprovação (Pendentes)</h2>
+        <table>
+            <thead><tr><th>Setor</th><th>Item / Peça</th><th>Detalhes</th><th>Visualizar</th><th>Status</th><th>Ações</th></tr></thead>
+            <tbody id="listaAprovacoes"></tbody>
+        </table>
+    </div>
+
+    <div class="card" style="border-top: 4px solid var(--secondary);">
+        <h2 style="border-left-color: var(--secondary);">🟢 2. Histórico de Liberações (Aprovados)</h2>
+        <table>
+            <thead><tr><th>Setor</th><th>Item / Peça</th><th>Detalhes</th><th>Visualizar</th><th>Ações / Auditoria</th></tr></thead>
+            <tbody id="listaAprovados"></tbody>
+        </table>
+    </div>
+
+    <div class="grid-gestao">
+        <div class="card">
+            <h2>📜 3. Auditoria de Turno (Operadores)</h2>
+            <div class="search-box">
+                <input type="text" id="buscaRA" placeholder="Digite o RA ou Nome do operador...">
+                <button class="btn btn-pesquisar" onclick="buscarApontamentos()">🔍 Filtrar Histórico</button>
+            </div>
+            <div id="resultadoBusca" style="max-height: 300px; overflow-y: auto; margin-top: 10px;">
+                <p style="color: #999; font-style: italic; text-align: center;">Use a busca para auditar turnos.</p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>🚨 4. Alertas de Desvios na Fábrica</h2>
+            <div id="listaErros" style="max-height: 300px; overflow-y: auto;"></div>
+        </div>
+    </div>
+</div>
+
+<script src="gestao.js"></script>
+</body>
+</html>
