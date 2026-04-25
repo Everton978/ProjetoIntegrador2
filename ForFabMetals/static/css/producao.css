@@ -1,0 +1,86 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #27ae60;
+    --blue: #3498db;
+    --danger: #e74c3c;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --accent: #f1c40f;
+}
+
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
+
+/* NAVBAR PADRONIZADA FORFABIO */
+.navbar {
+    background: #2c3e50;
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; }
+.brand span { color: #f1c40f; }
+
+.nav-links { display: flex; gap: 5px; flex-wrap: wrap; }
+.nav-links a { color: #ecf0f1; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 5px; transition: 0.3s; font-weight: 500; }
+.nav-links a:hover { background: rgba(255, 255, 255, 0.1); color: #f1c40f; }
+.nav-links a.ativo { background: #f1c40f; color: #2c3e50 !important; font-weight: bold; }
+
+/* CONTAINER */
+.container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+
+.header-producao { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+.btn-refresh { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.btn-refresh:hover { background: #34495e; }
+
+.filtros-box { display: flex; gap: 10px; margin-bottom: 25px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-wrap: wrap; }
+.filtros-box input { flex-grow: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+.filtros-box select { padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; min-width: 200px; }
+
+/* CARD */
+.card-producao { 
+    background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    margin-bottom: 25px; border-left: 8px solid #bdc3c7; 
+}
+.status-em_andamento { border-left-color: var(--blue) !important; }
+.status-pausado { border-left-color: var(--danger) !important; }
+.status-concluido { border-left-color: var(--secondary) !important; }
+
+.card-header { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.card-body { padding: 20px; display: grid; grid-template-columns: 280px 1fr; gap: 25px; }
+
+.drawing-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #eee; border-radius: 8px; border: 1px solid #ddd; min-height: 150px; overflow: hidden; padding: 10px; }
+.drawing-zone img { max-width: 100%; max-height: 200px; border-radius: 4px; object-fit: contain; }
+.btn-abrir-anexo { margin-top: 10px; background: var(--primary); color: white; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; width: 80%; }
+.btn-abrir-anexo:hover { background: #34495e; }
+
+.info-zone { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.full-width { grid-column: span 2; }
+
+/* NOVO ESTILO: CAIXA DE ALERTA DE RETRABALHO */
+.alerta-retrabalho { background: #fff3cd; border-left: 5px solid #f1c40f; color: #856404; padding: 12px; border-radius: 4px; font-size: 13px; font-weight: bold; margin-bottom: 15px; }
+
+.checklist { background: #f9f9f9; padding: 15px; border-radius: 8px; }
+.step { display: flex; align-items: center; margin-bottom: 8px; font-size: 14px; }
+.step input { margin-right: 12px; width: 18px; height: 18px; cursor: pointer; }
+
+.progress-bar-bg { background: #eee; height: 20px; border-radius: 10px; position: relative; margin-top: 5px; overflow: hidden; }
+.progress-bar-fill { background: var(--secondary); height: 100%; width: 0%; transition: 0.4s; }
+.progress-text { position: absolute; width: 100%; text-align: center; font-size: 11px; font-weight: bold; line-height: 20px; }
+
+.btn-assumir { background: var(--blue); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; }
+.btn-assumir:disabled { background: #bdc3c7; cursor: not-allowed; }
+
+.status-select { padding: 10px; border-radius: 8px; width: 100%; border: 2px solid #ddd; margin: 10px 0; font-weight: bold; }
+
+.empty-state { text-align: center; padding: 50px; color: #7f8c8d; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+@media (max-width: 900px) { .card-body { grid-template-columns: 1fr; } .info-zone { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
+@media (max-width: 850px) { .navbar { flex-direction: column; padding: 10px; } .nav-links { justify-content: center; width: 100%; margin-top: 10px; } .filtros-box { flex-direction: column; } }

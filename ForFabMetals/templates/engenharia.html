@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engenharia - ForFabio</title>
+<link rel="stylesheet" href="../navbar.css">
+<link rel="stylesheet" href="engenharia.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a><a href="pcp.html">PCP</a><a href="almoxarifado.html">Almox</a><a href="apontamento.html">Aponte</a><a href="producao.html">Prod</a><a href="engenharia.html" class="ativo">Eng</a><a href="qualidade.html">Quali</a><a href="gestao.html">Gestor</a>
+        <a href="#" onclick="logout()" style="color:#e74c3c; font-weight: bold;">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Repositório de Desenhos Técnicos</h2>
+
+    <div class="upload-section">
+        <div class="grid-eng">
+            <div class="campo">
+                <label style="color: var(--orange);">Conjunto / Projeto Pai</label>
+                <input id="conjunto" placeholder="Ex: Mancal Frontal" style="border: 2px solid var(--orange);">
+            </div>
+            <div class="campo"><label>Peça</label><input id="peca" placeholder="Ex: Eixo Principal"></div>
+            <div class="campo"><label>Rev</label><input id="rev" placeholder="Ex: A"></div>
+            <div class="campo"><label>Autor</label><input id="autor" readonly></div>
+        </div>
+
+        <div class="grid-eng">
+            <div class="campo"><label>Tipo</label><select id="tipo"><option>PDF</option><option>DWG</option><option>3D</option><option>IMG</option><option>LINK</option></select></div>
+            <div class="campo"><label>Matéria-Prima Sugerida</label><input id="material" placeholder="Ex: Aço 1020"></div>
+            <div class="campo"><label>Arquivo (Até 2MB)</label><input type="file" id="arquivo" accept=".pdf,image/*"></div>
+            <div class="campo"><label>Ou Link (URL)</label><input id="link" placeholder="https://..."></div>
+        </div>
+
+        <button id="btn-salvar" onclick="processarEnvio()">📤 Enviar para Aprovação do Gestor</button>
+        <button id="btn-cancelar" class="btn-cancelar" onclick="cancelarEdicao()">❌ Cancelar Edição</button>
+    </div>
+
+    <h3>Projetos da Engenharia</h3>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>Conjunto</th><th>Peça / Rev</th><th>Material</th><th>Status Gestor</th><th>Ação / Arquivo</th></tr></thead>
+            <tbody id="lista"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="engenharia.js"></script>
+</body>
+</html>

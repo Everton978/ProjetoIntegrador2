@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apontamento Diário - ForFabio</title>
+<link rel="stylesheet" href="../navbar.css">
+<link rel="stylesheet" href="apontamento.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="pcp.html">PCP</a>
+        <a href="almoxarifado.html">Almox</a>
+        <a href="apontamento.html">Aponte</a>
+        <a href="producao.html">Prod</a>
+        <a href="engenharia.html">Eng</a>
+        <a href="qualidade.html">Quali</a>
+        <a href="gestao.html">Gestor</a>
+        <a href="#" onclick="logout()" style="color:#e74c3c; font-weight: bold;">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Registro de Atividade Diária</h2>
+    <p class="subtitle">Apontamento de tempo e ocorrências do turno.</p>
+
+    <div class="info-usuario">
+        👤 Operador: <strong id="raUsuario">--</strong>
+    </div>
+
+    <div class="row">
+        <div class="campo">
+            <label>Data da Atividade</label>
+            <input type="date" id="dataAtividade">
+        </div>
+        <div class="campo">
+            <label>Status Final</label>
+            <select id="statusAtividade">
+                <option value="em_andamento">🟡 Em Andamento</option>
+                <option value="finalizada">🟢 Finalizada</option>
+                <option value="pausada">🔴 Pausada/Interrompida</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="campo">
+            <label>Duração Total (Horas)</label>
+            <input type="number" id="tempoGasto" step="0.5" placeholder="Ex: 4.5">
+        </div>
+        <div class="campo">
+            <label>Houve Desvio de Processo?</label>
+            <select id="desvio" onchange="verificarDesvio()">
+                <option value="nao">Não</option>
+                <option value="sim">Sim (Informar justificativa)</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="containerProblema">
+        <label>Justificativa do Desvio / Problema</label>
+        <textarea id="detalheProblema" placeholder="Descreva o que houve (falha de máquina, falta de material, erro de projeto...)"></textarea>
+    </div>
+
+    <div class="campo">
+        <label>Descrição das Atividades Realizadas</label>
+        <textarea id="descricaoAtividade" rows="4" placeholder="O que foi feito neste período?"></textarea>
+    </div>
+
+    <button class="btn-enviar" onclick="enviarApontamento()">📤 Enviar Apontamento</button>
+    <div id="msgRetorno"></div>
+</div>
+
+<script src="apontamento.js"></script>
+</body>
+</html>

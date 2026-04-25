@@ -1,0 +1,116 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+}
+
+.logo-gif {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* BANNER DE MODO TESTE */
+.banner-teste {
+    background: #fff3cd;
+    border: 2px dashed #f1c40f;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #856404;
+    font-weight: 600;
+}
+
+h2 { color: #2c3e50; margin-bottom: 20px; font-weight: 600; }
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #27ae60;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover { background: #219150; transform: translateY(-2px); }
+
+/* BOTÃO DE ACESSO RÁPIDO */
+.btn-teste {
+    background: #e67e22 !important;
+    margin-top: 10px;
+}
+.btn-teste:hover { background: #d35400 !important; }
+
+.link-troca {
+    color: #3498db;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.mensagem {
+    margin-top: 15px;
+    font-size: 14px;
+    min-height: 20px;
+    font-weight: 500;
+}
+
+#formCadastro { display: none; }
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 5px;
+    color: #95a5a6;
+    font-size: 12px;
+}
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+    margin: 0 10px;
+}
+
+@media (max-width: 400px) { .login-card { padding: 25px; } }

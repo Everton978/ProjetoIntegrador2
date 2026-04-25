@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualidade - ForFabio</title>
+    <link rel="stylesheet" href="qualidade.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a><a href="pcp.html">PCP</a><a href="almoxarifado.html">Almox</a><a href="apontamento.html">Aponte</a><a href="producao.html">Prod</a><a href="engenharia.html">Eng</a><a href="qualidade.html" class="ativo">Quali</a><a href="gestao.html">Gestor</a>
+        <a href="#" onclick="logout()" style="color:#e74c3c; font-weight: bold;">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="header-quali">
+        <h2 style="margin: 0;">Controle de Qualidade (CQ) e Metrologia</h2>
+    </div>
+
+    <div class="grid-quali">
+        <div class="card" style="overflow-x: auto;">
+            <h3>🔍 Fila de Inspeção</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OS</th>
+                        <th>Peça</th>
+                        <th>Operador</th>
+                        <th>Status Fábrica</th>
+                        <th>Projeto</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="listaInspecao"></tbody>
+            </table>
+        </div>
+
+        <div class="card" id="painelLaudo" style="opacity: 0.5; pointer-events: none;">
+            <h3>📋 Emissão de Laudo Técnico</h3>
+            <div class="form-laudo">
+                <div style="display: flex; gap: 10px;">
+                    <div class="campo" style="flex: 1;">
+                        <label>OS</label>
+                        <input type="text" id="osAtual" readonly placeholder="...">
+                    </div>
+                    <div class="campo" style="flex: 2;">
+                        <label>Peça</label>
+                        <input type="text" id="pecaAtual" readonly>
+                    </div>
+                </div>
+
+                <div class="medidas-grid">
+                    <div class="campo">
+                        <label>Medida Especificada (Eng)</label>
+                        <input type="text" id="medidaDesenho" placeholder="Ex: Ø50.00 ±0.05">
+                    </div>
+                    <div class="campo">
+                        <label>Medida Encontrada (Real)</label>
+                        <input type="text" id="medidaReal" placeholder="Ex: Ø50.12">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label>Parecer / Resultado da Inspeção</label>
+                    <select id="resultadoInspecao" onchange="verificarResultado()">
+                        <option value="">Selecione o Status...</option>
+                        <option value="APROVADO">✅ Aprovado (Conforme Especificado)</option>
+                        <option value="RETRABALHO">⚠️ Retrabalho (Devolver para a Máquina)</option>
+                        <option value="REPROVADO">❌ Reprovado / Sucata (Perda Total)</option>
+                    </select>
+                </div>
+                
+                <div class="laudo-reprovado" id="boxReprovado">
+                    <div class="campo">
+                        <label style="color: var(--danger);">Justificativa do Retrabalho ou Sucata</label>
+                        <textarea id="motivoReprovacao" rows="3" placeholder="Descreva o que ficou fora da cota..."></textarea>
+                    </div>
+                </div>
+
+                <button class="btn-laudar" id="btnSalvarLaudo" onclick="salvarLaudo()">Emitir Laudo Dimensional</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <h3>📁 Histórico de Inspeções e Laudos</h3>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>OS</th>
+                        <th>Peça</th>
+                        <th>Inspetor</th>
+                        <th>Dimensões (Especificado / Real)</th>
+                        <th>Resultado</th>
+                        <th>Observações</th>
+                    </tr>
+                </thead>
+                <tbody id="historicoLaudos"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="qualidade.js"></script>
+</body>
+</html>

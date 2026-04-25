@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ForFabio Gestão</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="home.html" class="brand">For<span>Fabio</span> | Indústria 4.0</a>
+    <div class="nav-links">
+        <a href="home.html" class="ativo">Home</a>
+        <a href="pcp.html">PCP</a>
+        <a href="almoxarifado.html">Almox</a>
+        <a href="apontamento.html">Aponte</a>
+        <a href="producao.html">Prod</a>
+        <a href="engenharia.html">Eng</a>
+        <a href="qualidade.html">Quali</a>
+        <a href="gestao.html">Gestor</a>
+        <a href="#" onclick="logout()" style="color: #e74c3c; font-weight: bold;">Sair</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <img src="logo_forfabio.gif" class="logo-gif">
+    <h1>Torre de Controle - Fábrica</h1>
+    <p id="msgBoasVindas" style="color: #7f8c8d;">Carregando dados da planta...</p>
+</div>
+
+<div class="dashboard">
+    <div class="card" style="border-top-color: var(--blue);">
+        <h3>1. Nascidos na Engenharia</h3>
+        <p id="kpi-eng">0</p>
+        <span>Projetos desenhados totais</span>
+    </div>
+    <div class="card" style="border-top-color: var(--purple);">
+        <h3>2. Liberados pelo PCP</h3>
+        <p id="kpi-pcp">0</p>
+        <span>Ordens ativas na fábrica</span>
+    </div>
+    <div class="card" style="border-top-color: var(--accent);">
+        <h3>3. Usinando na Produção</h3>
+        <p id="kpi-prod">0</p>
+        <span>Peças nas máquinas agora</span>
+    </div>
+    <div class="card" style="border-top-color: var(--secondary);">
+        <h3>4. Aprovados na Qualidade</h3>
+        <p id="kpi-quali">0</p>
+        <span>Peças finalizadas 100%</span>
+    </div>
+</div>
+
+<div class="content-grid">
+    <div class="panel">
+        <h2>📊 Status por Conjunto / Máquina</h2>
+        <p style="font-size: 13px; color: #7f8c8d; margin-bottom: 20px;">
+            Acompanhamento do lote de fabricação. A barra enche à medida que as peças do conjunto são aprovadas pela Qualidade.
+        </p>
+        <div id="listaConjuntos">
+            <p style="text-align: center; color: #999;">Analisando dados de engenharia...</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>📡 Radar de Ordens (Live)</h2>
+        <ul class="timeline" id="feedEventos">
+            <li>Aguardando ordens de serviço...</li>
+        </ul>
+    </div>
+</div>
+
+<footer class="footer">
+    ForFabio Enterprise © 2026 | Sistema Integrado de Manufatura
+</footer>
+
+<script src="home.js"></script>
+</body>
+</html>
