@@ -1,6 +1,6 @@
 from django.shortcuts import render
-#from django.http import HttpResponse #usado para respostas http
-
+from django.http import HttpResponse #usado para respostas http
+from django.contrib import admin
 # Create your views here.
 
 
@@ -10,6 +10,10 @@ from django.shortcuts import render
 #  Model -->Base de Dados,
 #  View --> Controla as chamadas das paginas(Controller)Receberequests, 
 # Template -->Paginas
+
+def index(request):
+     print('index')
+     return render(request,'index.html')
 
 def login(request):
     #Retorna http response

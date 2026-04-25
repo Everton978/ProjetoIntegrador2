@@ -16,10 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from ForFabMetals import views as Fab_View
 
 urlpatterns = [
     path('admin/', admin.site.urls), # É recomendável manter a rota do admin
     
     # Inclui as URLs do app ForFabMetals a partir da raiz do site
-    path('', include('ForFabMetals.urls')), 
+    path('ForFabMetals/', include('ForFabMetals.urls')), 
+    path('login.html', include('ForFabMetals.urls')), 
+
+    # Cada path agora tem uma URL diferente
+    #path('',Fab_View.index, name='index'),
+    #path('/login/', Fab_View.login, name='login'),
+    #path('home/', Fab_View.Home, name='home'),
+    #path('pcp/', Fab_View.Pcp, name='pcp'),
+    #path('almoxarifado/', Fab_View.Almox, name='almoxarifado'),
+    #path('apontamento/', Fab_View.Aponte, name='apontamento'),
+    #path('producao/', Fab_View.Producao, name='producao'),
+    #path('engenharia/', Fab_View.Engenharia, name='engenharia'),
+    #path('qualidade/', Fab_View.Quality, name='qualidade'),
+    #path('gestao/', Fab_View.Management, name='gestao'),
+
 ]
