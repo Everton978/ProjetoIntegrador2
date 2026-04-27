@@ -7,7 +7,7 @@ from . import views as Fab_View
 
 urlpatterns = [
     # Cada path agora tem uma URL diferente
-    path('',Fab_View.index, name='index'),
+    path(' ',Fab_View.index, name='index'),
     path('login/', Fab_View.login, name='login'),
     path('home/', Fab_View.Home, name='home'),
     path('pcp/', Fab_View.Pcp, name='pcp'),
