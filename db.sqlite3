@@ -1,0 +1,114 @@
+USE ForFabMetalsSystem;
+GO
+ 
+ 
+-- =================================== Tabela de Arquivos ===============================
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Files')
+BEGIN
+ 
+	CREATE TABLE Files(
+	Id_File INT IDENTITY(1,1) PRIMARY KEY, 
+	Nome VARCHAR(50);
+	Files_Drawing VARBINARY(MAX);
+	);
+END 
+GO
+ 
+ 
+ 
+ 
+-- =============================== Tabela de Usuários ===============================
+ 
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'users')
+BEGIN
+    CREATE TABLE users (
+        RA           VARCHAR(20)  PRIMARY KEY,
+        Nome         VARCHAR(100) NOT NULL,
+        Turma        VARCHAR(50),
+        Senha        VARCHAR(255) NOT NULL,
+        DataCadastro VARCHAR(10)
+    );
+END
+GO
+-- ===============================||||||||||||||||||||||||===============================
+ 
+ 
+ 
+-- =============================== Tabela de Ordens de Serviço ===============================
+ 
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ProducOrder')
+BEGIN
+    CREATE TABLE ProducOrder (
+        Id_Op          INT PRIMARY KEY IDENTITY(1,1),
+        Peca           VARCHAR(100) NOT NULL,
+        Material       VARCHAR(50),
+        DesenhoURL     VARCHAR(MAX),
+        Processos      VARCHAR(MAX),
+        DataInicio_Plan DATETIME,
+        DataFim_Plan   DATETIME,
+        Status         VARCHAR(20)  DEFAULT 'Aguardando',
+        ResponsavelRA  VARCHAR(20),
+        CONSTRAINT FK_UsuarioOS FOREIGN KEY (ResponsavelRA) REFERENCES users(RA) -- ✅ Nome correto
+    );
+END
+GO
+ 
+-- ===============================||||||||||||||||||||||||===============================
+ 
+ 
+ 
+-- =============================== Tabela de Almoxarifado ===============================
+ 
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Almoxarifado')
+BEGIN
+    CREATE TABLE Almoxarifado (
+        Id_Item    INT PRIMARY KEY IDENTITY(1,1),
+        Peca       VARCHAR(100) NOT NULL,
+        Material   VARCHAR(50),
+        Tamanho    VARCHAR(50),
+        Quantidade INT          DEFAULT 1,
+        Endereco   VARCHAR(50),
+        Status     VARCHAR(20)  DEFAULT 'Almoxarifado',
+        DataEntrada DATETIME    DEFAULT GETDATE()
+    );
+END
+GO
+ 
+ 
+-- ===============================||||||||||||||||||||||||===============================
+ 
+ 
+ 
+ 
+-- =============================== Tabela de Qualidade ===============================
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Qualidade')
+BEGIN
+    CREATE TABLE Qualidade (
+        IdInspecao   INT PRIMARY KEY IDENTITY(1,1),
+        IdOS         INT,
+        Parametro    VARCHAR(100),
+        ValorNominal VARCHAR(50),
+        ValorReal    DECIMAL(10,3),
+        StatusFinal  VARCHAR(20),
+        Observacoes  TEXT,
+        DataInspecao DATETIME     DEFAULT GETDATE(),
+        CONSTRAINT FK_OSQualidade FOREIGN KEY (IdOS) REFERENCES ProducOrder(Id_Op) -- ✅ Nome e coluna corretos
+    );
+END
+GO
+-- ===============================||||||||||||||||||||||||===============================
+ 
+ 
+ 
+-- =================================== Tabela de Projetos ===============================
+ 
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Projetos')
+BEGIN
+ 
+	CREATE TABLE Projetos(
+
+	); 
+END
+GO
+ 
+-- ===============================||||||||||||||||||||||||===============================
