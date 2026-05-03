@@ -21,4 +21,4 @@ class User(models.Model):
     Turma = models.CharField(max_length=6,blank=False,null=False)
     Create_Date = models.DateTimeField(default=timezone.now)
 
-#class ProducOrder(models.Model):
+class ProducOrder(models.Model):
