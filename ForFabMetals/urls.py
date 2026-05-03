@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import path
 from . import views as Fab_View
 
-
+app_name = 'ForFabMetals'
 
 urlpatterns = [
     # Cada path agora tem uma URL diferente

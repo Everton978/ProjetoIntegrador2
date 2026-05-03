@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - ForFabio</title>
+    <link rel="stylesheet" href="{% static 'css/NewUser.css' %}">
+</head>
+<body>
+
+<div class="cadastro-card">
+    <img src="logo_forfabio.gif" class="logo-gif" alt="Logo ForFabio">
+
+    <div id="formCadastro">
+        <h2>Novo Operador</h2>
+
+        <input type="text" id="cadNome" placeholder="Nome Completo">
+        <input type="text" id="cadRA" placeholder="RA">
+        <input type="text" id="cadTurma" placeholder="Turma">
+        <input type="password" id="cadSenha" placeholder="Senha">
+
+        <button onclick="registrarUsuario()">Cadastrar</button>
+
+        <div id="msgCadastro" class="mensagem"></div>
+
+        <a href="login" class="link-voltar">Voltar para Login</a>
+    </div>
+</div>
+
+<script src="NewUser.js"></script>
+</body>
+</html>

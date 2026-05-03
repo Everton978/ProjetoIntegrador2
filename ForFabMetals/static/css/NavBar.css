@@ -1,45 +1,154 @@
-/* =============================================
-   FORFABIO — CSS COMPARTILHADO (navbar + base)
-   ============================================= */
-:root {
-    --primary: #2c3e50;
-    --secondary: #27ae60;
-    --warning: #f1c40f;
-    --danger: #e74c3c;
-    --orange: #e67e22;
-    --blue: #2980b9;
-    --purple: #8e44ad;
-    --bg: #f0f2f5;
-    --white: #ffffff;
-    --accent: #f1c40f;
+:root{
+    --dark:#0f172a;
+    --dark2:#1e293b;
+    --gold:#f1c40f;
+    --blue:#3498db;
+    --red:#e74c3c;
+    --white:#ffffff;
+    --glass:rgba(255,255,255,0.06);
 }
 
-body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
-
-/* NAVBAR */
-.navbar {
-    background: #2c3e50;
-    color: white;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; }
-.brand span { color: #f1c40f; }
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 30px;
+    background:linear-gradient(135deg,var(--dark),var(--dark2));
+    backdrop-filter:blur(12px);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        inset 0 -1px 0 rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(241,196,15,.15);
+}
 
-.nav-links { display: flex; gap: 5px; flex-wrap: wrap; }
-.nav-links a { color: #ecf0f1; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 5px; transition: 0.3s; font-weight: 500; }
-.nav-links a:hover { background: rgba(255, 255, 255, 0.1); color: #f1c40f; }
-.nav-links a.ativo { background: #f1c40f; color: #2c3e50 !important; font-weight: bold; }
+.brand{
+    color:var(--white);
+    font-size:1.35rem;
+    font-weight:800;
+    text-decoration:none;
+    letter-spacing:.5px;
+    transition:.3s;
+}
 
-@media (max-width: 850px) {
-    .navbar { flex-direction: column; padding: 10px; }
-    .nav-links { justify-content: center; width: 100%; margin-top: 10px; }
+.brand span{
+    color:var(--gold);
+}
+
+.brand:hover{
+    transform:translateY(-2px);
+    text-shadow:0 0 15px rgba(241,196,15,.35);
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    color:#dbeafe;
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:.88rem;
+    font-weight:700;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.nav-links a::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,.08),transparent);
+    opacity:0;
+    transition:.3s;
+}
+
+.nav-links a:hover::before{
+    opacity:1;
+}
+
+.nav-links a:hover{
+    transform:translateY(-2px);
+    color:var(--gold);
+    background:var(--glass);
+}
+
+.nav-links a.ativo{
+    background:linear-gradient(135deg,var(--gold),#ffd84d);
+    color:#111827;
+    box-shadow:0 8px 20px rgba(241,196,15,.35);
+}
+
+.logout-btn{
+    color:#ff9b9b !important;
+}
+
+.logout-btn:hover{
+    background:rgba(231,76,60,.15) !important;
+    color:#fff !important;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+
+/* Mobile */
+@media(max-width:950px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:linear-gradient(135deg,var(--dark),var(--dark2));
+        flex-direction:column;
+        align-items:stretch;
+        padding:15px;
+        gap:10px;
+        display:none;
+        border-top:1px solid rgba(255,255,255,.05);
+        box-shadow:0 20px 40px rgba(0,0,0,.35);
+    }
+
+    .nav-links.show{
+        display:flex;
+        animation:fadeDown .35s ease;
+    }
+
+    .nav-links a{
+        text-align:center;
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }

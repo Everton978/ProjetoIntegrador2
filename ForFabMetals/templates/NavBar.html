@@ -1,0 +1,42 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+<nav class="navbar">
+
+    <div class="nav-left">
+        <a href="{% url 'home' %}" class="brand">
+            For<span>Fabio</span>
+            <small>Indústria 4.0</small>
+        </a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="{% url 'home' %}" data-link="home">Home</a>
+
+        <a href="{% url 'pcp' %}" data-link="pcp">PCP</a>
+
+        <a href="{% url 'almoxarifado' %}" data-link="almoxarifado">Almox</a>
+
+        <a href="{% url 'apontamento' %}" data-link="apontamento">Aponte</a>
+
+        <a href="{% url 'producao' %}" data-link="producao">Produção</a>
+
+        <a href="{% url 'engenharia' %}" data-link="engenharia">Engenharia</a>
+
+        <a href="{% url 'qualidade' %}" data-link="qualidade">Qualidade</a>
+
+        <a href="{% url 'gestao' %}" data-link="gestao">Gestão</a>
+
+        <a href="{% url 'logout' %}" class="logout-btn">Sair</a>
+
+    </div>
+
+</nav>
+
+<script src="{% static 'js/navbar.js' %}"></script>
