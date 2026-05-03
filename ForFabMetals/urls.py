@@ -1,20 +1,17 @@
-
-from django.http import HttpResponse
 from django.urls import path
-from . import views as Fab_View
+from . import views
 
 app_name = 'ForFabMetals'
 
 urlpatterns = [
-    # Cada path agora tem uma URL diferente
-    path(' ',Fab_View.index, name='index'),
-    path('login/', Fab_View.login, name='login'),
-    path('home/', Fab_View.Home, name='home'),
-    path('pcp/', Fab_View.Pcp, name='pcp'),
-    path('almoxarifado/', Fab_View.Almox, name='almoxarifado'),
-    path('apontamento/', Fab_View.Aponte, name='apontamento'),
-    path('producao/', Fab_View.Producao, name='producao'),
-    path('engenharia/', Fab_View.Engenharia, name='engenharia'),
-    path('qualidade/', Fab_View.Quality, name='qualidade'),
-    path('gestao/', Fab_View.Management, name='gestao'),
+    path('', views.index, name='index'), 
+    path('login/', views.login_view, name='login'),  
+    path('home/', views.Home, name='home'),
+    path('pcp/', views.Pcp, name='pcp'),
+    path('almoxarifado/', views.Almox, name='almoxarifado'),
+    path('apontamento/', views.Aponte, name='apontamento'),
+    path('producao/', views.Producao, name='producao'),
+    path('engenharia/', views.Engenharia, name='engenharia'),
+    path('qualidade/', views.Quality, name='qualidade'),
+    path('gestao/', views.Management, name='gestao'),
 ]

@@ -96,6 +96,17 @@ async function tentarLogin() {
     setTimeout(() => { window.location.href = "home.html"; }, 800);
 }
 
+function loginRapido() {
+    fetch('/login-teste/') // Rota que vamos criar no Django
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/dashboard/'; // Mude para a sua página inicial
+            } else {
+                alert("Erro ao entrar como tester. Verifique se o usuário 'tester' existe.");
+            }
+        });
+}
+
 document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         if (document.getElementById('formLogin').style.display !== "none") tentarLogin();

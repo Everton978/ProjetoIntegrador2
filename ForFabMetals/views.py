@@ -1,47 +1,36 @@
 from django.shortcuts import render
-from django.http import HttpResponse #usado para respostas http
-from django.contrib import admin
-# Create your views here.
-
-
-# HTTP Request <-> Http Response
-
-# django trabalha com MVT ( equivalente a MVC)
-#  Model -->Base de Dados,
-#  View --> Controla as chamadas das paginas(Controller)Receberequests, 
-# Template -->Paginas
+from django.http import HttpResponse
+# REMOVA esta linha que está causando conflito:
+# from django.contrib.auth import login
 
 def index(request):
      print('index')
-     return render(request,'index.html')
+     return render(request, 'index.html')
 
-def login(request):
-    #Retorna http response
-    print ('login')
-    #return HttpResponse('Hello,Word!') Resposta http
-    return render(request,'login.html')
+def login_view(request):  # 👈 RENOMEIE para login_view
+    print('login')
+    return render(request, 'login.html')
 
 def Home(request):
-    return render (request,'home.html')
-
+    return render(request, 'home.html')
 
 def Pcp(request):
-     return render (request,'pcp.html')
+     return render(request, 'pcp.html')
 
 def Almox(request):
-     return render (request,'almoxarifado.html')
+     return render(request, 'almoxarifado.html')
 
 def Aponte(request):
-     return render (request,'apontamento.html')
+     return render(request, 'apontamento.html')
 
 def Producao(request):
-     return render (request,'producao.html')
+     return render(request, 'producao.html')
 
 def Engenharia(request):
-     return render (request,'engenharia.html')
+     return render(request, 'engenharia.html')
 
 def Quality(request):
-     return render (request,'qualidade.html')
+     return render(request, 'qualidade.html')
 
 def Management(request):
-     return render (request,'gestao.html')
+     return render(request, 'gestao.html')  # SEM 'templates/'

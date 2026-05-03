@@ -1,28 +1,13 @@
-"""
-URL configuration for project project.
-"""
 from django.contrib import admin
-from django.urls import path
-from ForFabMetals import views as Fab_View
+from django.urls import path, include
+from ForFabMetals import views as Fab_View # Mantemos isso apenas para a página inicial
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
     
-    # 1. A raiz do site inicia no index
+    # 1. Deixando a raiz (127.0.0.1:8000/) apontar para o seu index
     path('', Fab_View.index, name='index'),
 
-    # 2. Caminho específico interno para as funções de login
-    path('login/', Fab_View.login, name='login'),
-
-    # 3. Rota para a Home (acessada após validação)
-    path('home/', Fab_View.Home, name='home'),
-
-    # Demais rotas do seu sistema
-    path('pcp/', Fab_View.Pcp, name='pcp'),
-    path('almoxarifado/', Fab_View.Almox, name='almoxarifado'),
-    path('apontamento/', Fab_View.Aponte, name='apontamento'),
-    path('producao/', Fab_View.Producao, name='producao'),
-    path('engenharia/', Fab_View.Engenharia, name='engenharia'),
-    path('qualidade/', Fab_View.Quality, name='qualidade'),
-    path('gestao/', Fab_View.Management, name='gestao'),
+    # 2. Delegando TODAS as outras rotas para o urls.py do seu aplicativo
+    path('ForFabMetals/', include('ForFabMetals.urls')),
 ]
